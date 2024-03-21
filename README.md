@@ -1,4 +1,4 @@
-# Tourism App Using HERE API
+# Tourism Website Using HERE API
 
 ## Project Description
 
