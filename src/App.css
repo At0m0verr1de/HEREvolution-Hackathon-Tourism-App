@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.map-container {
+  margin: 20px;
+  height: 500px; /* Adjust the height as needed */
+}
+
+.App-header + .map-container > div {
+  height: 100%;
+}

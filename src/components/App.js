@@ -1,7 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
+import React from 'react';
+import MapComponent from './MapComponent'; // Adjust the path if necessary
 
 function App() {
+  const apiKey = 'ls7teHIyXK8xpLKosgaWzIu0bkEBWDgCfaPKV-ewWqI'; // Replace with your actual HERE API key
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,8 @@ function App() {
           Learn React
         </a>
       </header>
+      {/* MapComponent is added here, passing the API key as a prop */}
+      <MapComponent apiKey={apiKey} className="map-container" />
     </div>
   );
 }

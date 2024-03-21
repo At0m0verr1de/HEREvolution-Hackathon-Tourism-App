@@ -1,3 +1,5 @@
+https://www.here.com/docs/bundle/maps-api-for-javascript-developer-guide/page/topics/quick-start.html
+
 # Tourism Website Using HERE API
 
 ## Project Description
@@ -31,7 +33,7 @@ To get a local copy up and running, follow these simple steps.
    ```
 3. Enter your HERE API key in a `.env` file
    ```js
-   HERE_API_KEY='ENTER YOUR API KEY'
+   HERE_API_KEY = "ENTER YOUR API KEY";
    ```
 
 ### Running the Application
@@ -71,4 +73,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [HERE Developer Documentation](https://developer.here.com/documentation)
 - [Choose an Open Source License](https://choosealicense.com)
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
+
+```
+
 ```
