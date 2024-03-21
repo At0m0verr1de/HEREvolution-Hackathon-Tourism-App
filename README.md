@@ -72,5 +72,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Choose an Open Source License](https://choosealicense.com)
 - [React Documentation](https://reactjs.org/docs/getting-started.html)
 ```
-
-This template is a starting point. Be sure to customize it to fit your project's specific needs and to provide as much detailed guidance as possible to your users and contributors. Remember to replace placeholders (like `https://github.com/your_username_/TourismApp`) with actual links and information related to your project.
