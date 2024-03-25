@@ -70,7 +70,8 @@ const AskRoute = ({ apikey }) => {
     
             // If you want to store the polyline data in your state
             setRouteData(polylineData); // Assuming you want to store just the polyline data, adjust as needed
-    
+            onRouteFetched(polylineData); // Propagate the route data up to the parent component
+
         } catch (error) {
             setError('Error fetching data. Please try again.');
             console.error('Error fetching data:', error);
