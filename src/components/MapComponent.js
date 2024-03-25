@@ -4,34 +4,42 @@ const MapComponent = ({ apiKey }) => {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    if (window.H && mapRef.current) {
-      const platform = new window.H.service.Platform({
-        apikey: apiKey
-      });
+    // Dynamically load the HERE Maps API script if needed
+    const script = document.createElement('script');
+    script.src = `https://js.api.here.com/v3/3.1/mapsjs-core.js`;
+    script.async = true;
+    script.onload = () => {
+      // Ensure the global H object is available
+      if (window.H) {
+        // Initialize the platform object:
+        const platform = new window.H.service.Platform({
+          apikey: apiKey
+        });
 
-      const defaultLayers = platform.createDefaultLayers();
+        // Obtain the default map types from the platform object:
+        const defaultLayers = platform.createDefaultLayers();
 
-      const map = new window.H.Map(
-        mapRef.current,
-        defaultLayers.vector.normal.map,
-        {
-          zoom: 10,
-          center: { lat: 52.5, lng: 13.4 },
-        }
-      );
+        // Instantiate (and display) a map:
+        const map = new window.H.Map(
+          mapRef.current,
+          defaultLayers.vector.normal.map,
+          {
+            zoom: 10,
+            center: { lat: 52.5, lng: 13.4 }
+          }
+        );
 
-      // Create the default UI components
-      const ui = window.H.ui.UI.createDefault(map, defaultLayers);
+        // Add event listeners or additional map setup here
+      }
+    };
+    document.head.appendChild(script);
 
-      // Enable the event system on the map instance:
-      const mapEvents = new window.H.mapevents.MapEvents(map);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [apiKey]);
 
-      // Instantiate the default behavior, providing the mapEvents object: 
-      new window.H.mapevents.Behavior(mapEvents);
-    }
-  }, [apiKey]); // This effect depends on the apiKey prop
-
-  return <div ref={mapRef} style={{ height: "500px", width: "100%" }}></div>;
+  return <div ref={mapRef} style={{ height: '500px' }} />;
 };
 
 export default MapComponent;
